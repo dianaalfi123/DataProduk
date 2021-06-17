@@ -67,7 +67,7 @@
 
                 <div class="pull-right">
 
-                <a href="<?=base_url('home/logout_admin')?>" class="btn btn-danger btn-flat">Keluar </a>
+                <a href="<?=base_url('')?>" class="btn btn-danger btn-flat">Keluar </a>
                 
                 </div>
               </li>
@@ -149,7 +149,7 @@
   <!-- /.content-wrapper -->
   <footer class="main-footer">
 
-    <strong>Copyright &copy; 2021 <a href="#">Fast Print Data</a>.</strong> All rights
+    <strong>Copyright &copy; 2021 <a href="<?=base_url()?>">Fast Print Data</a>.</strong> All rights
     reserved.
   </footer>
 

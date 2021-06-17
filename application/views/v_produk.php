@@ -6,12 +6,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>
-		<?=$judul?>
+		Fast Print Data
 	</title>
 </head>
 
 <body>
 	<style>
+
 		input[type="checkbox"],
 		input[type="radio"] {
 			position: absolute;
@@ -131,6 +132,25 @@
 				transform: scale(1);
 			}
 		}
+		#table-wrapper {
+		  position:relative;
+		}
+		#table-scroll {
+		  height:500px;
+		  overflow:auto;  
+		}
+		#table-wrapper table {
+		  width:100%;
+
+		}
+		#table-wrapper table thead th .text {
+		  position:absolute;   
+		  top:-20px;
+		  z-index:2;
+		  height:20px;
+		  width:35%;
+		  border:1px solid red;
+		}
 	</style>
 	<div class="container-fluid">
 		<h2>
@@ -154,6 +174,8 @@
 					</center>
 				<?php }?>
 				</p>
+				<div id="table-wrapper">
+  				<div id="table-scroll">
 				<table id="tableAdmin" class="table table-bordered table-striped">
 					<thead>
 						<tr>
@@ -166,7 +188,7 @@
 							<th>Aksi</th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody >
 
 						<?php $no=1; foreach ($data_produk_bisa_dijual as $data) {  ?>
 						<tr>
@@ -199,9 +221,11 @@
 
 						</tr>
 						<?php } ?>
-
-						</tfoot>
+					</tbody>
+					<tfoot></tfoot>
 				</table>
+				</div>
+				</div>
 			</div>
 		</div>
 
@@ -341,7 +365,10 @@
 						<h3><strong>Hapus Data Produk</strong></h3>
 					</div>
 					<div class="modal-body">
-						<h4>Anda Yakin Ingin Menghapus Produk ?</h4>
+					<div class="row">
+		                <p id="med" style="text-align:center;font-size: 20px;">PERINGATAN!</p>
+		                <p style="text-align:center;font-size: 17px;">Apakah Anda Yakin Ingin Menghapus Produk  <input style='border-color: transparent;font-weight: bold;width: -moz-fit-content;width: fit-content;padding: 5px;margin-bottom: 1em;' type="text" id='nama_produk1'readonly> ?</p>
+		            </div>
 					</div>
 					<form action="<?=base_url('produk/delete_produk')?>" method="post" class="form-horizontal form-label-left">
 
@@ -371,6 +398,7 @@
 					$("#id_produk1").val(data.id_produk);
 					$("#id_produk").val(data.id_produk);
 					$("#nama_produk").val(data.nama_produk);
+					$("#nama_produk1").val(data.nama_produk);
 					$("#kategori").val(data.kategori);
 					$("#harga").val(data.harga);
 					$("#status").val(data.status);

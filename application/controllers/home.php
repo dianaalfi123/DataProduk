@@ -20,6 +20,7 @@ class Home extends CI_Controller
 		$this->load->view('v_template',$data);
 	}
 
+	//proses menyimpan data json ke databae fastprintdata dan terdapat validasi untuk mencegah dukplikasi data dengan memanfaatkan data id_produk sebagai unik data dan setelah proses berhasil maka akan berpindah halaman/redirect ke halaman data produk
 	public function save_data_json(){
 		$detail = json_decode($this->input->get('DETAIL'));
 		$dataDuplikat = array();
